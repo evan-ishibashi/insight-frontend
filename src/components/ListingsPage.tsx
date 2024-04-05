@@ -4,40 +4,62 @@ import ListingCard from './ListingCard';
 import SearchForm from './SearchForm';
 import ListingType from './types';
 import { useParams } from 'react-router-dom';
+import ListingsList from './ListingsList';
+import Pagination from './Pagination';
+import ListingHeader from './ListingHeader';
 
 
 function ListingsPage() {
     const [listings, setListings] = useState<ListingType[] | null>([])
     const [searchTerm, setSearchTerm] = useState('');
     const [isLoading, setIsLoading] = useState(true);
-    const { source } = useParams();
+    const [currentPage, setCurrentPage] = useState(1)
+    const [listingsPerPage, setListingsPerPage] = useState(15)
+    const { site } = useParams();
 
     useEffect(function fetchListingsWhenMounted() : void {
         async function fetchListings() {
           setIsLoading(true);
-          setListings(await InsightApi.getListings(source,searchTerm));
+          setListings(await InsightApi.getListings(site,searchTerm));
           setIsLoading(false);
         }
         fetchListings();
-      }, [searchTerm]);
+      }, [searchTerm,site]);
 
     function updateSearch(newSearchTerm:string) : void {
         setSearchTerm(newSearchTerm);
     }
 
+    const paginate = (pageNumber:number) : void => setCurrentPage(pageNumber)
+
+    // get current posts
+    const indexOfLastListing = currentPage * listingsPerPage;
+    const indexOfFirstListing = indexOfLastListing - listingsPerPage;
+    const currentListings = listings?.slice(indexOfFirstListing, indexOfLastListing);
+    const totalListings = listings?.length;
+
+
     if (isLoading) return <h1>Loading...</h1>
 
     return (
-    <div className='ListingsList'>
-        {/* <SearchForm updateSearch={updateSearch} />
-        {listings.length === 0 &&
-          <h5 className="mt-4">Sorry, no listings were found!</h5>} */}
+    <div className='grid grid-flow-dense grid-cols-2 grid-rows-1'>
+        <div>
+            <ListingHeader site={site}/>
+        </div>
+        <div className='col-span-1'>
 
-        {listings?.map(listing => (
-          <ListingCard key={listing.id} listing={listing} />
-        ))}
-      </div>
+        </div>
+        <div className='col-span-2' id='Listings'>
+            <ListingsList listings={currentListings}/>
+            <Pagination
+                totalListings = {totalListings}
+                listingsPerPage = {listingsPerPage}
+                currentPage={currentPage}
+                paginate={paginate}
+            />
+        </div>
+    </div>
     );
   }
 
-  export default ListingsPage;
+export default ListingsPage;

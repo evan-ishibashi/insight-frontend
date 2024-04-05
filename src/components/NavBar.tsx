@@ -13,12 +13,25 @@ function NavBar() {
 
       return (
         <>
+          <ol className="flex w-full flex-wrap items-center justify-between px-1">
+
+          <li className="">
+            <Link to="/home"><img src="../assets/logo/png/logo-no-background.png" alt="" /></Link>
+          </li>
+          <li className="">
+            <Link to="/listings">Listings</Link>
+          </li>
           <li>
-            <Link to="/listings/all">Listings</Link>
+            <Link to="/listings/fb">FB Listings</Link>
+          </li>
+          <li>
+            <Link to="/listings/offerup">Offerup Listings</Link>
           </li>
           <li>
             <Link to="/about">About</Link>
           </li>
+
+          </ol>
         </>
       );
     }
