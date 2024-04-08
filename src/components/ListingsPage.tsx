@@ -15,6 +15,7 @@ function ListingsPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1)
     const [listingsPerPage, setListingsPerPage] = useState(15)
+    const [firstGenOnly, setFirstGenOnly] = useState(true)
     const { site } = useParams();
 
     useEffect(function fetchListingsWhenMounted() : void {
@@ -41,22 +42,27 @@ function ListingsPage() {
 
     if (isLoading) return <h1>Loading...</h1>
 
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });
+
     return (
-    <div className='grid grid-flow-dense grid-cols-2 grid-rows-1'>
-        <div>
+    <div className=''>
+        <div className=''>
             <ListingHeader site={site}/>
         </div>
-        <div className='col-span-1'>
-
-        </div>
-        <div className='col-span-2' id='Listings'>
-            <ListingsList listings={currentListings}/>
-            <Pagination
-                totalListings = {totalListings}
-                listingsPerPage = {listingsPerPage}
-                currentPage={currentPage}
-                paginate={paginate}
-            />
+        <div className=''>
+            <div className='' id='Listings'>
+                <ListingsList listings={currentListings}/>
+                <Pagination
+                    totalListings = {totalListings}
+                    listingsPerPage = {listingsPerPage}
+                    currentPage={currentPage}
+                    paginate={paginate}
+                />
+            </div>
         </div>
     </div>
     );

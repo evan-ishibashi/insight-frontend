@@ -5,7 +5,7 @@ import NavBar from './NavBar';
 function App() {
 
   return (
-    <div className='bg-slate-200'>
+    <div className='bg-slate-200 mt-20'>
       <BrowserRouter>
           <NavBar/>
           <RoutesList/>

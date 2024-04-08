@@ -49,10 +49,14 @@ class InsightApi {
   //Individual API routes
 
   /** Optional filter by name for all listings. Returns [{listing}, ...]  */
-  static async getListings(site:string = "", searchTerm: string = "") {
+  static async getListings(site:string = "", searchTerm: string = "", firstGenOnly: boolean = true) {
     const searchParam = searchTerm === '' ? {} : { name: searchTerm };
-
-    let res = await this.request(`listings/${site}`, searchParam);
+    let res;
+    if (firstGenOnly){
+      res = await this.request(`listings/${site}/1g`, searchParam);
+    } else {
+      res = await this.request(`listings/${site}`, searchParam);
+    }
     console.log(res)
     return res.listings;
   }

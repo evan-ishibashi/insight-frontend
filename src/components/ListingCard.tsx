@@ -24,7 +24,7 @@ function ListingCard({listing}: {listing:ListingType}) {
                   <span className="ml-2 mt-1">
                       {city}, {state}
                     </span>
-                  <span className="display: inline self-end ml-28">
+                  <span className="self-end ml-28">
                     <Badge site={site}/>
                   </span>
                 </span>

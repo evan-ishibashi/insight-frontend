@@ -1,7 +1,9 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 
 
-function Pagination({ totalListings, listingsPerPage, currentPage, paginate}:{totalListings:number, listingsPerPage:number, currentPage:number, paginate:Function}) {
+function Pagination({ totalListings=0, listingsPerPage, currentPage, paginate}:{totalListings:number | undefined, listingsPerPage:number, currentPage:number, paginate:Function}) {
+    const firstResult = 1 + ((currentPage - 1) * listingsPerPage)
+    const lastResult = currentPage * listingsPerPage > totalListings ? totalListings : currentPage * listingsPerPage
     const listingNumbers = [];
 
     if (totalListings){
@@ -10,6 +12,8 @@ function Pagination({ totalListings, listingsPerPage, currentPage, paginate}:{to
             listingNumbers.push(i)
         }
     }
+
+
 
 
 
@@ -32,7 +36,7 @@ function Pagination({ totalListings, listingsPerPage, currentPage, paginate}:{to
           <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
             <div>
               <p className="text-sm text-gray-700">
-                Showing <span className="font-medium">{1 + ((currentPage - 1) * listingsPerPage)}</span> to <span className="font-medium">{(currentPage * listingsPerPage > totalListings) ? (currentPage * listingsPerPage) : totalListings}</span> of{' '}
+                Showing <span className="font-medium">{firstResult}</span> to <span className="font-medium">{lastResult}</span> of{' '}
                 <span className="font-medium">{totalListings}</span> results
               </p>
             </div>
@@ -53,7 +57,7 @@ function Pagination({ totalListings, listingsPerPage, currentPage, paginate}:{to
                         <a
                             // href={`${number}`}
                             aria-current="page"
-                            className="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            className="relative z-10 inline-flex items-center bg-blue-500 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:bg-blue-500"
                         >
                             {number}
                         </a>

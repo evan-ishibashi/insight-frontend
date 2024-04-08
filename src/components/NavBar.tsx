@@ -1,4 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
+import logo from '../assets/logo/png/logo-no-background.png'
 
 /** NavBar: displays navbar
  *
@@ -8,18 +9,17 @@ import { NavLink, Link } from "react-router-dom";
  *
  */
 function NavBar() {
-    /** renders if user is not logged in */
 
 
       return (
         <>
-          <ol className="flex w-full flex-wrap items-center justify-between px-1">
+          <ol className="flex w-full items-center justify-around px-1 h-20 fixed top-0 z-10 bg-slate-50">
 
           <li className="">
-            <Link to="/home"><img src="../assets/logo/png/logo-no-background.png" alt="" /></Link>
+            <a href="/"><img src={logo} alt="site-logo" className="h-16" /></a>
           </li>
           <li className="">
-            <Link to="/listings">Listings</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
             <Link to="/listings/fb">FB Listings</Link>
