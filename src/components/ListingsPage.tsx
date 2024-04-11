@@ -21,11 +21,15 @@ function ListingsPage() {
     useEffect(function fetchListingsWhenMounted() : void {
         async function fetchListings() {
           setIsLoading(true);
-          setListings(await InsightApi.getListings(site,searchTerm));
+          setListings(await InsightApi.getListings(site,searchTerm, firstGenOnly));
           setIsLoading(false);
         }
         fetchListings();
       }, [searchTerm,site]);
+
+    useEffect(function resetPageCount(): void {
+      setCurrentPage(1)
+    },[site])
 
     function updateSearch(newSearchTerm:string) : void {
         setSearchTerm(newSearchTerm);

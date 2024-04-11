@@ -5,6 +5,14 @@ import React from 'react';
 const Home = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
+         <div className='flex justify-center'>
+          <div className='container relative'>
+          <img src="https://hips.hearstapps.com/hmg-prod/images/2000-honda-insight-what-to-buy-105-1663605331.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*"
+               alt="ficus green insight"
+               className='w-full'/>
+          <span className='absolute bottom-0w-full top-10 right-10 text-center mt-10 mr-2 text-xl font-sans font-bold'>Honda's most slept-on car.</span>
+          </div>
+        </div>
 
       {/* Hero section */}
       <div className="bg-white">
@@ -31,7 +39,7 @@ const Home = () => {
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900">Site Features</h2>
             <p className="mt-4 text-lg text-gray-600">
-              Discover what sets us apart.
+              Learn all about the Honda Insight.
             </p>
           </div>
           {/* Feature cards */}
@@ -75,14 +83,6 @@ const Home = () => {
         </div>
       </div>
 
-         <div className='flex justify-center'>
-          <div className='container relative'>
-          <img src="https://hips.hearstapps.com/hmg-prod/images/2000-honda-insight-what-to-buy-105-1663605331.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*"
-               alt="ficus green insight"
-               className='w-full'/>
-          <span className='absolute bottom-0w-full top-10 right-10 text-center mt-10 mr-2 text-xl font-sans font-bold'>Honda's most slept-on car.</span>
-          </div>
-        </div>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white">

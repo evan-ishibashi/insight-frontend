@@ -2,13 +2,14 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 
 
 function Pagination({ totalListings=0, listingsPerPage, currentPage, paginate}:{totalListings:number | undefined, listingsPerPage:number, currentPage:number, paginate:Function}) {
-    const firstResult = 1 + ((currentPage - 1) * listingsPerPage)
+    const firstResult = totalListings ? (1 + ((currentPage - 1) * listingsPerPage)) : 0;
     const lastResult = currentPage * listingsPerPage > totalListings ? totalListings : currentPage * listingsPerPage
+    const totalPages = Math.ceil(totalListings/listingsPerPage)
     const listingNumbers = [];
 
     if (totalListings){
 
-        for(let i=1; i <= Math.ceil(totalListings/listingsPerPage); i++){
+        for(let i=1; i <= totalPages; i++){
             listingNumbers.push(i)
         }
     }
@@ -42,20 +43,22 @@ function Pagination({ totalListings=0, listingsPerPage, currentPage, paginate}:{
             </div>
             <div>
               <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-                <a
-                //   href="#"
-                    onClick={() => paginate(currentPage -1)}
-                  className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                >
+               { currentPage > 1 ?
+               <a
+               onClick={() => paginate(currentPage -1)}
+               className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+               >
                   <span className="sr-only">Previous</span>
                   <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
                 </a>
+                :
+                <></>
+              }
                 {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
                 {listingNumbers.map(number => {
                         return number === currentPage ?
 
                         <a
-                            // href={`${number}`}
                             aria-current="page"
                             className="relative z-10 inline-flex items-center bg-blue-500 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:bg-blue-500"
                         >
@@ -63,7 +66,6 @@ function Pagination({ totalListings=0, listingsPerPage, currentPage, paginate}:{
                         </a>
                         :
                         <a
-                            // href={`${number}`}
                             onClick={() => paginate(number)}
                             className="relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset right-gray-300 focus:z-20 hover:bg-gray-50 focus:outline-offset-0"
                         >
@@ -72,32 +74,22 @@ function Pagination({ totalListings=0, listingsPerPage, currentPage, paginate}:{
 
                 })}
 
-                <a
-                //   href="#"
-                  onClick={() => paginate(currentPage + 1)}
-                  className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-                >
-                  <span className="sr-only">Next</span>
+            { currentPage < totalPages ?
+               <a
+               onClick={() => paginate(currentPage +1)}
+               className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+               >
+                  <span className="sr-only">Previous</span>
                   <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
                 </a>
+                :
+                <></>
+              }
               </nav>
             </div>
           </div>
         </div>
       )
-
-// return (
-//     <nav className="">
-//         {listingNumbers.map(number => (
-//             <li key={number} className="">
-//                 <a onClick={() => paginate()} className="">
-//                     {number}
-//                 </a>
-//             </li>
-//         ))}
-
-//     </nav>
-// )
 
 }
 

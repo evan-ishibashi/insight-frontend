@@ -12,6 +12,7 @@ type ListingType = {
     state: string;
     title: string;
     url: string;
+    year: number;
   }
 
 export default ListingType
