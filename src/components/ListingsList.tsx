@@ -1,9 +1,5 @@
-import { useState, useEffect } from 'react';
-import InsightApi from './api';
 import ListingCard from './ListingCard';
-import SearchForm from './SearchForm';
 import ListingType from './types';
-import { useParams } from 'react-router-dom';
 
 
 function ListingsList({listings}:{listings:ListingType[] | undefined}) {

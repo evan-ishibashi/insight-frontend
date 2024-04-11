@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import InsightApi from './api';
-import ListingCard from './ListingCard';
-import SearchForm from './SearchForm';
 import ListingType from './types';
 import { useParams } from 'react-router-dom';
 import ListingsList from './ListingsList';
@@ -11,11 +9,11 @@ import ListingHeader from './ListingHeader';
 
 function ListingsPage() {
     const [listings, setListings] = useState<ListingType[] | null>([])
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1)
-    const [listingsPerPage, setListingsPerPage] = useState(15)
-    const [firstGenOnly, setFirstGenOnly] = useState(true)
+    const [listingsPerPage] = useState(15)
+    const [firstGenOnly] = useState(true)
     const { site } = useParams();
 
     useEffect(function fetchListingsWhenMounted() : void {
@@ -30,10 +28,6 @@ function ListingsPage() {
     useEffect(function resetPageCount(): void {
       setCurrentPage(1)
     },[site])
-
-    function updateSearch(newSearchTerm:string) : void {
-        setSearchTerm(newSearchTerm);
-    }
 
     const paginate = (pageNumber:number) : void => setCurrentPage(pageNumber)
 
