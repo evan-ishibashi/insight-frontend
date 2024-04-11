@@ -9,7 +9,7 @@ const Home = () => {
           <img src="https://hips.hearstapps.com/hmg-prod/images/2000-honda-insight-what-to-buy-105-1663605331.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*"
                alt="ficus green insight"
                className='w-full'/>
-          <span className='absolute bottom-0w-full top-10 right-10 text-center mt-10 mr-2 text-xl font-sans font-bold'>Honda's most slept-on car.</span>
+          <span className='absolute bottom-0w-full top-10 right-10 text-center mt-2 mr-2 text-xl font-sans font-bold md:mt-10'>Honda's most slept-on car.</span>
           </div>
         </div>
 
