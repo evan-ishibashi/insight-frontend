@@ -1,5 +1,6 @@
 
-const BASE_URL = import.meta.env.VITE_BASE_URL ? import.meta.env.VITE_BASE_URL : "http://localhost:5001";
+const BASE_URL = "https://insight-backend-3gjt.onrender.com/";
+// "http://localhost:5001";
 
 
 
