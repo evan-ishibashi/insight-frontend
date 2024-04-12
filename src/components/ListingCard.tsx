@@ -5,7 +5,7 @@ import Badge from "./Badge";
 function ListingCard({listing}: {listing:ListingType}) {
     const { title, city, image, mileage, price, state, url, site } = listing;
     return (
-      <div className="max-w-full md:max-w-sm rounded overflow-hidden shadow-lg bg-white hover:scale-105 transition-all duration-500 cursor-pointer">
+      <div className="max-w-full md:max-w-sm rounded overflow-hidden shadow-lg bg-white md:hover:scale-105 transition-all duration-500 cursor-pointer">
         <Link to={`${url}`} target="blank" rel="noopener noreferrer">
           {image && <img className="w-full" src={image} alt={title}></img>}
           <div className="px-6 py-4 flex flex-col">
