@@ -1,5 +1,5 @@
-import { Navigate } from "react-router-dom";
-const BASE_URL = import.meta.env.REACT_APP_BASE_URL ? import.meta.env.REACT_APP_BASE_URL : "http://localhost:5001";
+
+const BASE_URL = import.meta.env.VITE_BASE_URL ? import.meta.env.VITE_BASE_URL : "http://localhost:5001";
 
 
 
@@ -31,11 +31,6 @@ class InsightApi {
     console.log(headers)
     const resp = await fetch(url, { method, body, headers });
 
-    if (resp.status === 401) {
-      console.error('Unauthorized request. Redirecting to login page.');
-      <Navigate to="/login" />
-    }
-
     //fetch API does not throw an error, have to dig into the resp for msgs
     if (!resp.ok) {
       console.error("API Error:", resp.statusText, resp.status);
@@ -51,6 +46,7 @@ class InsightApi {
   /** Optional filter by name for all listings. Returns [{listing}, ...]  */
   static async getListings(site:string = "", searchTerm: string = "", firstGenOnly: boolean = true) {
     const searchParam = searchTerm === '' ? {} : { name: searchTerm };
+
     let res;
     if (firstGenOnly){
       res = await this.request(`listings/${site}/1g`, searchParam);
@@ -61,10 +57,10 @@ class InsightApi {
     return res.listings;
   }
 
-  /** Get details on a Listing by id. Returns {listing} */
-  static async getListing(id: number) {
-    let res = await this.request(`listings/${id}`);
-    return res.listing;
+  /** Wakes Up Server */
+  static async wakeUp() {
+    let res = await this.request(`wakeup/`);
+    return res;
   }
 
   /** Creates a new listing */

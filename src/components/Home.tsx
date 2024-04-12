@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import InsightApi from "./api";
 
 
 const Home = () => {
+InsightApi.wakeUp();
   return (
     <div className="bg-gray-100 min-h-screen">
          <div className='flex justify-center'>
