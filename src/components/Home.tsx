@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -20,14 +20,14 @@ const Home = () => {
             <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">
               Welcome to 1g Honda Insight!
             </h1>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 mb-6 text-lg text-gray-600">
               A place where you can find all things 1st Gen Honda Insight.
             </p>
-            <div className="mt-6">
-              <a href="/about" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded">
+            <Link to="/about" className="mt-6">
+              <a className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded">
                 About
               </a>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -51,12 +51,16 @@ const Home = () => {
                   Browse Listings from FB Marketplace, Offerup
                 </p>
                 <div className="mt-6 flex justify-between">
-              <a href="/listings/fb" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded">
-                Facebook
-              </a>
-              <a href="/listings/offerup" className="bg-emerald-700 hover:bg-emerald-900 text-white font-bold py-3 px-8 rounded place-self-end">
-                Offerup
-              </a>
+                  <Link to="/listings/fb">
+                    <a className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded">
+                    Facebook
+                    </a>
+                  </Link>
+                  <Link to="/listings/offerup">
+                    <a className="bg-emerald-700 hover:bg-emerald-900 text-white font-bold py-3 px-8 rounded place-self-end">
+                    Offerup
+                    </a>
+                  </Link>
             </div>
               </div>
             </div>
