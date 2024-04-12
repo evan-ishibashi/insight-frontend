@@ -51,6 +51,14 @@ function ListingsPage() {
         <div className=''>
             <ListingHeader site={site}/>
         </div>
+        <div className='md:hidden'>
+          <Pagination
+          totalListings = {totalListings}
+          listingsPerPage = {listingsPerPage}
+          currentPage={currentPage}
+          paginate={paginate}
+          />
+        </div>
         <div className=''>
             <div className='' id='Listings'>
                 <ListingsList listings={currentListings}/>
