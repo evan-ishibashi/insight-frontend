@@ -38,7 +38,14 @@ function ListingsPage() {
     const totalListings = listings?.length;
 
 
-    if (isLoading) return <h1>Loading...</h1>
+    if (isLoading) return (
+      <>
+       <div className=''>
+            <ListingHeader site={site}/>
+        </div>
+      <h1>Grabbing Listings...</h1>
+      </>
+    )
 
     window.scrollTo({
         top: 0,
