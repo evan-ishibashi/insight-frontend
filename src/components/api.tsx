@@ -1,14 +1,12 @@
 
-const BASE_URL = "https://insight-backend-3gjt.onrender.com/";
-// "http://localhost:5001";
+// const BASE_URL = "https://insight-backend-3gjt.onrender.com";
+const BASE_URL = "http://localhost:5001";
 
 
 
 /** API Class.
  *
  * Static class tying together methods used to get/send to to the API.
- * There shouldn't be any frontend-specific stuff here, and there shouldn't
- * be any API-aware stuff elsewhere in the frontend.
  *
  */
 
@@ -64,52 +62,11 @@ class InsightApi {
     return res;
   }
 
-  /** Creates a new listing */
-//   static async createListing(formData) {
-//     console.log("token is ", this.token)
+  static async getChartData() {
+    let res = await this.request(`listings/chart`);
 
-//     let res = await this.request(`listings`, formData, 'POST');
-//     console.log("new listing", res);
-//     return res.new_listing;
-//   }
-
-  /** Returns user object upon logging in */
-//   static async login(data) {
-//     let res = await this.request(`login`, data, 'POST');
-//     return res;
-//   }
-
-  /** Returns user object upon signing up  */
-//   static async signup(data) {
-//     let res = await this.request(`signup`, data, 'POST');
-//     return res;
-//   }
-
-  /** Returns user object  */
-//   static async getUser() {
-//     let res = await this.request(`getuser`);
-//     return res;
-//   }
-
-  /** Uploads photo to AWS */
-//   static async uploadPhotos(listingId, file) {
-//     const url = `${BASE_URL}/listings/${listingId}/photos`;
-//     const method = "POST";
-    // never set header by yourself if using multiform/form-data
-    // const headers = {
-    //   "Authorization": `Bearer ${ShareBnbApi.token}`
-    // };
-
-//     const formData = new FormData();
-//     formData.append('file', file);
-
-//     const body = formData;
-
-//     const resp = await fetch(url, { method, body });
-//     const photoData = await resp.json();
-
-//     return photoData;
-//   }
+    return res.listings;
+  }
 }
 
 export default InsightApi;
