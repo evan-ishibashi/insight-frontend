@@ -22,13 +22,16 @@ function NavBar() {
             <Link to="/home">Home</Link>
           </li>
           <li>
-            <Link to="/listings/fb">FB Listings</Link>
+            <Link to="/listings/fb">Facebook</Link>
           </li>
           <li>
-            <Link to="/listings/offerup">Offerup Listings</Link>
+            <Link to="/listings/offerup">Offerup</Link>
           </li>
           <li>
-            <Link to="/data">Data Trends</Link>
+            <Link to="/data">Parts</Link>
+          </li>
+          <li>
+            <Link to="/data">Data</Link>
           </li>
           <li>
             <Link to="/about">About</Link>

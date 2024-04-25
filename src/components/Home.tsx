@@ -67,19 +67,33 @@ const Home = () => {
             {/* Feature 2 */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900">Feature 2</h3>
+                <h3 className="text-xl font-bold text-gray-900">Parts Car Listings</h3>
                 <p className="mt-4 text-gray-600">
-                  Description of Feature 2.
+                  Browse Listings aggregated from sites like LKQ and Pick & Pull.
                 </p>
+                <div className="mt-6 flex justify-center">
+                  <Link to="/parts">
+                    <a className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-3 px-8 rounded">
+                    Parts Cars
+                    </a>
+                  </Link>
+            </div>
               </div>
             </div>
             {/* Feature 3 */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900">Feature 3</h3>
+                <h3 className="text-xl font-bold text-gray-900">Data Trends</h3>
                 <p className="mt-4 text-gray-600">
-                  Description of Feature 3.
+                  See Visualized Historical Data for Honda insight pricing and more.
                 </p>
+                <div className="mt-6 flex justify-center">
+                  <Link to="/data">
+                    <a className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded">
+                    Data
+                    </a>
+                  </Link>
+            </div>
               </div>
             </div>
           </div>
@@ -90,7 +104,7 @@ const Home = () => {
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <p className="text-sm">&copy; {new Date().getFullYear()} Your Website. All rights reserved.</p>
+          <p className="text-sm">&copy; {new Date().getFullYear()} 1ginsight. All rights reserved.</p>
           <div>
             <a href="#" className="text-gray-400 hover:text-white ml-4">Privacy Policy</a>
             <a href="#" className="text-gray-400 hover:text-white ml-4">Terms of Service</a>

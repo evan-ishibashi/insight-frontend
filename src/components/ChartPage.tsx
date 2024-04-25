@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import InsightApi from './api';
 import {ListingType} from './types';
 import ChartList from './ChartList';
+import ChartInsights from './ChartInsights';
 
 
 
@@ -22,8 +23,11 @@ function ChartPage() {
     if (isLoading) return <h1>Loading...</h1>
 
     return (
-    <div className=''>
-      <ChartList listings={listings}/>
+    <div className='flex flex-col'>
+      <span className='w-full'>
+        <ChartList listings={listings}/>
+      </span>
+      <ChartInsights listings={listings}/>
     </div>
     );
   }
