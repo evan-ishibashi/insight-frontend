@@ -1,49 +1,46 @@
 import { useState, useEffect } from 'react';
 import InsightApi from './api';
-import {ListingType} from './types';
-import { useParams } from 'react-router-dom';
-import ListingsList from './ListingsList';
+import {PartsType} from './types';
+import PartsList from './PartsList';
 import Pagination from './Pagination';
-import ListingHeader from './ListingHeader';
+import PartsHeader from './PartsHeader'
 
 
-function ListingsPage() {
-    const [listings, setListings] = useState<ListingType[] | null>([])
-    const [searchTerm] = useState('');
+function PartsPage() {
+    const [parts, setParts] = useState<PartsType[] | null>([])
     const [isLoading, setIsLoading] = useState(true);
+    const [searchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1)
     const [listingsPerPage] = useState(15)
-    const [firstGenOnly] = useState(true)
-    const { site } = useParams();
 
-    useEffect(function fetchListingsWhenMounted() : void {
-        async function fetchListings() {
+    useEffect(function fetchPartsWhenMounted() : void {
+        async function fetchParts() {
           setIsLoading(true);
-          setListings(await InsightApi.getListings(site,searchTerm, firstGenOnly));
+          setParts(await InsightApi.getParts(searchTerm));
           setIsLoading(false);
         }
-        fetchListings();
-      }, [searchTerm,site]);
+        fetchParts();
+      }, [searchTerm]);
 
     useEffect(function resetPageCount(): void {
       setCurrentPage(1)
-    },[site])
+    },[])
 
     const paginate = (pageNumber:number) : void => setCurrentPage(pageNumber)
 
     // get current posts
     const indexOfLastListing = currentPage * listingsPerPage;
     const indexOfFirstListing = indexOfLastListing - listingsPerPage;
-    const currentListings = listings?.slice(indexOfFirstListing, indexOfLastListing);
-    const totalListings = listings?.length;
+    const currentParts = parts?.slice(indexOfFirstListing, indexOfLastListing);
+    const totalParts = parts?.length;
 
 
     if (isLoading) return (
       <>
        <div className=''>
-            <ListingHeader site={site}/>
+            <PartsHeader/>
         </div>
-      <h1>Grabbing Listings...</h1>
+      <h1>Grabbing Parts Listings...</h1>
       </>
     )
 
@@ -56,11 +53,11 @@ function ListingsPage() {
     return (
     <div className=''>
         <div className=''>
-            <ListingHeader site={site}/>
+            <PartsHeader/>
         </div>
         <div className='md:hidden'>
           <Pagination
-          totalListings = {totalListings}
+          totalListings = {totalParts}
           listingsPerPage = {listingsPerPage}
           currentPage={currentPage}
           paginate={paginate}
@@ -68,9 +65,9 @@ function ListingsPage() {
         </div>
         <div className=''>
             <div className='' id='Listings'>
-                <ListingsList listings={currentListings}/>
+                <PartsList parts={currentParts}/>
                 <Pagination
-                    totalListings = {totalListings}
+                    totalListings = {totalParts}
                     listingsPerPage = {listingsPerPage}
                     currentPage={currentPage}
                     paginate={paginate}
@@ -81,4 +78,4 @@ function ListingsPage() {
     );
   }
 
-export default ListingsPage;
+export default PartsPage;

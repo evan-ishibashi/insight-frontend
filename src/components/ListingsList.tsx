@@ -1,5 +1,5 @@
 import ListingCard from './ListingCard';
-import ListingType from './types';
+import {ListingType} from './types';
 
 
 function ListingsList({listings}:{listings:ListingType[] | undefined}) {

@@ -28,6 +28,9 @@ function NavBar() {
             <Link to="/listings/offerup">Offerup Listings</Link>
           </li>
           <li>
+            <Link to="/data">Data Trends</Link>
+          </li>
+          <li>
             <Link to="/about">About</Link>
           </li>
 

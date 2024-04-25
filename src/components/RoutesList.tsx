@@ -3,7 +3,7 @@ import Home from "./Home.tsx";
 import About from "./about.tsx";
 import ListingsPage from "./ListingsPage.tsx";
 import ChartPage from "./ChartPage.tsx";
-
+import PartsPage from "./PartsPage.tsx";
 
 /** RoutesList: All routes.
  *
@@ -17,6 +17,7 @@ function RoutesList() {
         <Route path='/listings/:site' element={<ListingsPage/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/data' element={<ChartPage/>} />
+        <Route path='/parts' element={<PartsPage/>} />
         <Route path='*' element={<Navigate to='/' />} />
     </Routes>
   );

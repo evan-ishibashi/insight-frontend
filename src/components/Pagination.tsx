@@ -82,6 +82,7 @@ function Pagination({ totalListings=0, listingsPerPage, currentPage, paginate}:{
                         <a
                             aria-current="page"
                             className="relative z-10 inline-flex items-center bg-blue-500 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:bg-blue-500"
+                            key={number}
                         >
                             {number}
                         </a>
@@ -89,6 +90,7 @@ function Pagination({ totalListings=0, listingsPerPage, currentPage, paginate}:{
                         <a
                             onClick={() => paginate(number)}
                             className="relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset right-gray-300 focus:z-20 hover:bg-gray-50 focus:outline-offset-0"
+                            key={number}
                         >
                             {number}
                         </a>

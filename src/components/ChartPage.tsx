@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import InsightApi from './api';
-import ListingType from './types';
+import {ListingType} from './types';
 import ChartList from './ChartList';
 
 

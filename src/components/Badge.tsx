@@ -15,6 +15,12 @@ function Badge({site}:{site:string}){
             </img>
 
         )}
+        {site === "lkq" && (
+            <img src="https://www.lkqcorp.com/wp-content/uploads/2019/03/NEW-PYP-Logo-600x200-1.png"
+            className="w-16">
+            </img>
+
+        )}
         </>
     );
 }

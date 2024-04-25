@@ -1,4 +1,4 @@
-import ListingType from "./types";
+import {ListingType} from "./types";
 import { Chart as ChartJS, registerables } from "chart.js/auto";
 import { Bubble, Scatter } from "react-chartjs-2"
 ChartJS.register(...registerables);

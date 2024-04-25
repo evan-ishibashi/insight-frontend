@@ -1,4 +1,4 @@
-import ListingType from "./types";
+import {ListingType} from "./types";
 import { Link } from "react-router-dom";
 import Badge from "./Badge";
 

@@ -56,6 +56,15 @@ class InsightApi {
     return res.listings;
   }
 
+  /** Optional filter by name for all listings. Returns [{listing}, ...]  */
+  static async getParts(searchTerm: string = "") {
+    const searchParam = searchTerm === '' ? {} : { name: searchTerm };
+
+    const res = await this.request(`parts`, searchParam);
+    console.log(res)
+    return res.parts;
+  }
+
   /** Wakes Up Server */
   static async wakeUp() {
     let res = await this.request(`wakeup/`);
