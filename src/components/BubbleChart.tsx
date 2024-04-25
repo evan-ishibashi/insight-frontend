@@ -17,6 +17,7 @@ function BubbleChart({listings}:{listings:ListingType[] | null}){
                         }
                     ]
 
+
                 }
                 }/>
         </div>

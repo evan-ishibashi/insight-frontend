@@ -1,6 +1,6 @@
 
-// const BASE_URL = "https://insight-backend-3gjt.onrender.com";
-const BASE_URL = "http://localhost:5001";
+const BASE_URL = "https://insight-backend-3gjt.onrender.com";
+// const BASE_URL = "http://localhost:5001";
 
 
 
