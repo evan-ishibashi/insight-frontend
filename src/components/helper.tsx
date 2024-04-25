@@ -22,9 +22,9 @@ function splitByMileage(listings:ListingType[]| null){
         for (let listing of listings){
             if (listing.mileage < 100000){
                 under.push(listing.price)
-            } else if (listing.mileage > 100000 && listing.mileage < 200000){
+            } else if (listing.mileage >= 100000 && listing.mileage < 200000){
                 between.push(listing.price)
-            } else if (listing.mileage > 200000 && listing.mileage < 300000){
+            } else if (listing.mileage >= 200000 && listing.mileage <= 300000){
                 between2.push(listing.price)
             } else if (listing.mileage > 300000){
                 over.push(listing.price)

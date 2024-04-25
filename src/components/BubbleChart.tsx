@@ -11,7 +11,7 @@ function BubbleChart({listings}:{listings:ListingType[] | null}){
                     labels: listings?.map((data)=> data.mileage),
                     datasets:[
                         {
-                            label:"1st Gen Honda Insight",
+                            label:"1st Gen Honda Insight Mileage Vs. Price",
                             data: listings?.map((data)=> data.price),
                             backgroundColor: "#064FF0"
                         }
