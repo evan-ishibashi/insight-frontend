@@ -105,10 +105,10 @@ const Home = () => {
       <footer className="bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <p className="text-sm">&copy; {new Date().getFullYear()} 1ginsight. All rights reserved.</p>
-          <div>
+          {/* <div>
             <a href="#" className="text-gray-400 hover:text-white ml-4">Privacy Policy</a>
             <a href="#" className="text-gray-400 hover:text-white ml-4">Terms of Service</a>
-          </div>
+          </div> */}
         </div>
       </footer>
     </div>

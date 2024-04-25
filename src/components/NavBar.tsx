@@ -28,7 +28,7 @@ function NavBar() {
             <Link to="/listings/offerup">Offerup</Link>
           </li>
           <li>
-            <Link to="/data">Parts</Link>
+            <Link to="/parts">Parts</Link>
           </li>
           <li>
             <Link to="/data">Data</Link>
