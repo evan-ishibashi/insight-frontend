@@ -1,20 +1,27 @@
 import ListingCard from './ListingCard';
-import {ListingType} from './types';
+import { ListingType } from './types';
 
+/** ListingsList: displays list of marketplace listings
+ *
+ * Props:
+ * - listings like [{listing},...]
+ *
+ * RoutesList -> ListingsPage -> ListingsList -> ListingCard -> Badge
+ */
 
-function ListingsList({listings}:{listings:ListingType[] | undefined}) {
+function ListingsList({ listings }: { listings: ListingType[] | undefined; }) {
 
-    return (
+  return (
     <div className='grid-cols-1 grid gap-2 md:gap-4 md:grid-cols-3 grid-rows-3'>
-        {/* <SearchForm updateSearch={updateSearch} />
+      {/* <SearchForm updateSearch={updateSearch} />
         {listings.length === 0 &&
           <h5 className="mt-4">Sorry, no listings were found!</h5>} */}
 
-        {listings?.map(listing => (
-          <ListingCard key={listing.id} listing={listing} />
-        ))}
-      </div>
-    );
-  }
+      {listings?.map(listing => (
+        <ListingCard key={listing.id} listing={listing} />
+      ))}
+    </div>
+  );
+}
 
-  export default ListingsList;
+export default ListingsList;

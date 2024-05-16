@@ -1,11 +1,18 @@
-import {ListingType} from "./types";
+import { ListingType } from "./types";
 import BubbleChart from "./BubbleChart";
 
-function ChartList({listings}:{listings:ListingType[] | null}) {
+/** ChartList: Displays list of charts
+ *
+ * Props:
+ * - listings: [{listing},...]
+ *
+ * RoutesList -> ChartPage -> ChartList
+ */
+function ChartList({ listings }: { listings: ListingType[] | null; }) {
 
     return (
         <div>
-            <BubbleChart listings={listings}/>
+            <BubbleChart listings={listings} />
         </div>
     );
 }

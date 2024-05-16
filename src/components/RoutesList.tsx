@@ -7,18 +7,27 @@ import PartsPage from "./PartsPage.tsx";
 
 /** RoutesList: All routes.
  *
+ * RoutesList -> Home
+ *            -> ListingsPage -> ListingsList -> ListingsCard -> Badge
+ *                            -> ListingsHeader
+ *                            -> Pagination
+ *            -> About
+ *            -> ChartPage -> ChartList
+ *                         -> ChartInsights
+ *            -> PartsPage -> PartsList -> PartsCard -> Badge
+ *                         -> PartsHeader
  */
 
 function RoutesList() {
   return (
     <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/listings' element={<ListingsPage/>} />
-        <Route path='/listings/:site' element={<ListingsPage/>} />
-        <Route path='/about' element={<About/>} />
-        <Route path='/data' element={<ChartPage/>} />
-        <Route path='/parts' element={<PartsPage/>} />
-        <Route path='*' element={<Navigate to='/' />} />
+      <Route path='/' element={<Home />} />
+      <Route path='/listings' element={<ListingsPage />} />
+      <Route path='/listings/:site' element={<ListingsPage />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/data' element={<ChartPage />} />
+      <Route path='/parts' element={<PartsPage />} />
+      <Route path='*' element={<Navigate to='/' />} />
     </Routes>
   );
 }

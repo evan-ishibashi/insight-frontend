@@ -12,8 +12,8 @@ const BASE_URL = "https://insight-backend-3gjt.onrender.com";
 
 class InsightApi {
 
-  static async request(endpoint: string, data = {}, method = "GET") {
-    const url = new URL(`${BASE_URL}/${endpoint}`);
+  static async request(endpoint: string, data = {}, method:string = "GET") {
+    const url:URL = new URL(`${BASE_URL}/${endpoint}`);
     const headers = {
       'Access-Control-Allow-Origin': '*',
       'content-type': 'application/json',

@@ -2,6 +2,13 @@ import {PartsType} from "./types";
 import { Link } from "react-router-dom";
 import Badge from "./Badge";
 
+/** PartsCard: displays individual part card
+ *
+ * Props:
+ * - parts: [{part},...]
+ *
+ * RoutesList -> PartsPage -> PartsList -> PartsCard -> Badge
+ */
 function PartsCard({part}: {part:PartsType}) {
     const { available, city, title, image, state, url, site, color, section, space, row, vin } = part;
     let jpg:boolean = true

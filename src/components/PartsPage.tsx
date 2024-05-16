@@ -5,7 +5,18 @@ import PartsList from './PartsList';
 import Pagination from './Pagination';
 import PartsHeader from './PartsHeader'
 
-
+/** PartsPage: displays individual part card
+ *
+ * State:
+ * - parts: [{part}, {part}, ...]
+ * - isLoading: boolean
+ * - searchTerm: string
+ * - currentPage: number
+ * - listingsPerPage: 15 default
+ *
+ * RoutesList -> PartsPage -> PartsList -> PartsCard -> Badge
+ *                         -> PartsHeader
+ */
 function PartsPage() {
     const [parts, setParts] = useState<PartsType[] | null>([])
     const [isLoading, setIsLoading] = useState(true);
@@ -41,6 +52,8 @@ function PartsPage() {
             <PartsHeader/>
         </div>
       <h1>Grabbing Parts Listings...</h1>
+      <h1>Server is spinning up, come back in a min</h1>
+
       </>
     )
 

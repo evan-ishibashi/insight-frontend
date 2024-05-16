@@ -1,17 +1,21 @@
 import { Link } from "react-router-dom";
 
-
+/** Home: Displays HomePage
+ *
+ *
+ * RoutesList -> Home
+ */
 const Home = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
-         <div className='flex justify-center'>
-          <div className='container relative'>
+      <div className='flex justify-center'>
+        <div className='container relative'>
           <img src="https://hips.hearstapps.com/hmg-prod/images/2000-honda-insight-what-to-buy-105-1663605331.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*"
-               alt="ficus green insight"
-               className='w-full'/>
+            alt="ficus green insight"
+            className='w-full' />
           <span className='absolute bottom-0w-full top-6 right-4 text-center mt-1 mr-2 text-md font-sans font-bold md:mt-10 md:top-10 md:right-10 md:text-xl lg:right-16 lg:text-2xl'>Honda's most slept-on car.</span>
-          </div>
         </div>
+      </div>
 
       {/* Hero section */}
       <div className="bg-white">
@@ -53,15 +57,15 @@ const Home = () => {
                 <div className="mt-6 flex justify-between">
                   <Link to="/listings/fb">
                     <a className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded">
-                    Facebook
+                      Facebook
                     </a>
                   </Link>
                   <Link to="/listings/offerup">
                     <a className="bg-emerald-700 hover:bg-emerald-900 text-white font-bold py-3 px-8 rounded place-self-end">
-                    Offerup
+                      Offerup
                     </a>
                   </Link>
-            </div>
+                </div>
               </div>
             </div>
             {/* Feature 2 */}
@@ -74,10 +78,10 @@ const Home = () => {
                 <div className="mt-6 flex justify-center">
                   <Link to="/parts">
                     <a className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-3 px-8 rounded">
-                    Parts Cars
+                      Parts Cars
                     </a>
                   </Link>
-            </div>
+                </div>
               </div>
             </div>
             {/* Feature 3 */}
@@ -90,10 +94,10 @@ const Home = () => {
                 <div className="mt-6 flex justify-center">
                   <Link to="/data">
                     <a className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded">
-                    Data
+                      Data
                     </a>
                   </Link>
-            </div>
+                </div>
               </div>
             </div>
           </div>

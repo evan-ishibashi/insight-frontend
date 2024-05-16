@@ -5,7 +5,15 @@ import ChartList from './ChartList';
 import ChartInsights from './ChartInsights';
 
 
-
+/** ChartPage: Handles logic and rendering of Data Chart Page
+ *
+ * State:
+ * - listings: [{listing},...]
+ * - isLoading: boolean
+ *
+ * RoutesList -> ChartPage -> ChartList -> BubbleChart
+ *                         -> ChartInsights
+ */
 function ChartPage() {
     const [listings, setListings] = useState<ListingType[] | null>([])
     const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +28,8 @@ function ChartPage() {
       }, []);
 
 
-    if (isLoading) return <h1>Loading...</h1>
+    if (isLoading) return <h1>Loading... Server is spinning up, come back in a min</h1>
+
 
     return (
     <div className='flex flex-col'>
